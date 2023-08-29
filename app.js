@@ -19,11 +19,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login',[
-    check('username', 'Username Must Be an Email Address').isEmail(),
-    check('password').isLength({ min: 8 })
+    check('username', 'Username Must Be an Email Address').isEmail().normalizeEmail(),
+    check('password').isLength({ min: 8 }).escape()
     .withMessage('Password Must Be at Least 8 Characters')
     .matches('[0-9]').withMessage('Password Must Contain a Number')
-    .matches('[A-Z]').withMessage('Password Must Contain an Uppercase Letter')], (req, res) => {
+    .matches('[A-Z]').withMessage('Password Must Contain an Uppercase Letter')
+  ], (req, res) => {
   // Validate and authenticate the user
   // Implement appropriate validation and secure authentication mechanisms here
   // For simplicity, you can use a hardcoded username and password for demonstration purposes
