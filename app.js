@@ -24,10 +24,7 @@ app.post('/login',[
     .withMessage('Password Must Be at Least 8 Characters')
     .matches('[0-9]').withMessage('Password Must Contain a Number')
     .matches('[A-Z]').withMessage('Password Must Contain an Uppercase Letter')
-  ], (req, res) => {
-  // Validate and authenticate the user
-  // Implement appropriate validation and secure authentication mechanisms here
-  // For simplicity, you can use a hardcoded username and password for demonstration purposes
+  ], (req, res) => 
 
   const { username, password } = req.body;
 
